@@ -1,0 +1,126 @@
+
+DelVar TDelVar theta
+ClrHome
+{0,1,1->|LSET
+3->dim(|LSET
+Lbl M
+Menu("ExpandCE: OrderOp V1P7","Start",S,"Credits",A
+Lbl A
+6:prgmZFUNCT
+Goto M
+Lbl S
+ClrHome
+Input "Poly: ",Str1
+0->theta
+10:prgmZFUNCT
+If theta=1
+Goto S
+If |LSET(1
+Str1->Str0
+If |LSET(3
+Then
+	startTmr->U
+	Disp "Waiting
+	While U=startTmr
+	End
+	Disp "Starting
+End
+ClrHome
+Lbl B
+0:prgmZFUNCT
+For(F,1,2
+	DelVar Y
+	inString(Str1,")->W
+	1->H
+	For(X,W,length(Str1
+		If X>length(Str1
+		Goto EN
+		If sub(Str1,X,1)="(
+		Then
+			X->H
+			If Y=1
+			Then
+				Pause "Error double parenthasis
+				Stop
+			End
+			1->Y
+		Else
+			If sub(Str1,X,1)=")
+			Then
+				If not(Y
+				Then
+					If H!=1
+					Then
+						Pause "Parenth mismatch
+						Stop
+					End
+				End
+				DelVar Y
+			Else
+				If not(Y
+				Then
+					(sub(Str1,X,1)="*")+2(sub(Str1,X,1)="+")+2(sub(Str1,X,1)="-->W
+					If W=F
+					Then
+						sub(Str1,X,1)="-->R
+						If sub(Str1,X+1,1)="(
+						Then
+							inString(Str1,")",X->G
+							If not(G
+							Then
+								Pause "Syntax error
+								Stop
+							End
+							sub(Str1,H+1,X-2-H->Str2
+							2:prgmZFUNCT
+							|LD->|LPOLY2
+							sub(Str1,X+2,G-2-X->Str2
+							2:prgmZFUNCT
+							|LD->|LPOLY1
+							If W=1
+							Then
+								3:prgmZFUNCT
+								L3->|LPOLY1
+							Else
+								If R
+								seq(~|LPOLY1(X)*not(remainder(X-1,length(Str4)))+|LPOLY1(X)*(remainder(X-1,length(Str4))),X,1,dim(|LPOLY1))->|LPOLY1
+								augment(|LPOLY1,|LPOLY2->|LPOLY1
+							End
+							4:prgmZFUNCT
+						End
+						9:prgmZFUNCT
+						" ->Str7
+						If H!=1
+						Then
+							Str7+sub(Str1,1,H-1->Str7
+						End
+						Str7+"("+Str8+")->Str7
+						If G!=length(Str1
+						Then
+							Str7+sub(Str1,G+1,length(Str1)-G->Str7
+						End
+						sub(Str7,2,length(Str7)-1->Str1
+						1->H
+						inString(Str1,")")-1->X
+						DelVar Y
+						Str1->Str5
+						8:prgmZFUNCT
+						If |LSET(2
+						Disp "--------------------------
+					End
+				End
+			End
+		End
+	End
+End
+Lbl EN
+If not(T
+Then
+	1->T
+	Goto B
+End
+Disp "Done! Written by:
+Disp "CodertheBarbarian
+
+If |LSET(3)
+Disp toString(startTmr-U)+" sec.

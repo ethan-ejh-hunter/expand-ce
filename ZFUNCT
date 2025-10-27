@@ -1,0 +1,419 @@
+Ans->V
+If not(V
+Then
+	Lbl Z0
+	"ABCDEFGHIJKLMNOPQRSTUVWXYZthetaabcdefghijklmnopqrstuvwxyz[recursiven]->Str2
+	" ->Str4
+	For(A,1,length(Str1
+		If inString(Str2,sub(Str1,A,1)) and not(inString(Str4,sub(Str1,A,1
+		Str4+sub(Str1,A,1->Str4
+	End
+	If Str4=" 
+	Stop
+	Return
+Else
+	If V=1
+	Then
+		DelVar D
+		Lbl Z1
+		DelVar B
+		DelVar C
+		For(A,1,length(Str1
+			If sub(Str1,A,1)="(
+			B+1->B
+			If sub(Str1,A,1)=")
+			C+1->C
+			If 1<abs(A-C
+			Then
+				1->D
+				length(Str1->A
+			End
+		End
+		If B!=C or B=0
+		1->D
+		If B-1!=length(Str0
+		2->D
+		Return
+	Else
+		If V=2
+		Then
+			Lbl Z2
+			1->D
+			0->dim(|LD
+			ClrList L1
+			1->L1(1
+			length(Str4->dim(L1
+			DelVar O
+			DelVar A
+			For(C,1,length(Str2
+				length(Str4->dim(L1
+				If C<=length(Str2
+				Then
+					sub(Str2,C,1->Str5
+					If O=1
+					Then
+						0->O
+						~1->L1(1
+					End
+					If Str5="~
+					Then
+						~L1(1->L1(1
+					End
+					If Str5="-
+					Then
+						If C!=1
+						Then
+							1->O
+						Else
+							~L1(1->L1(1
+						End
+					End
+					If C!=1
+					Then
+						If Str5="-" or Str5="+
+						Then
+							sub(Str2,D,C-D->Str3
+							5:prgmZFUNCT
+							If D=1
+							Then
+								L1->|LD
+							Else
+								augment(|LD,L1->|LD
+							End
+							ClrList L1
+							1->L1(1
+							C+1->D
+						End
+					End
+				End
+			End
+			sub(Str2,D,C-D->Str3
+			5:prgmZFUNCT
+			If D=1
+			Then
+				L1->|LD
+			Else
+				augment(|LD,L1->|LD
+			End
+			Return
+		Else
+			If V=3
+			Then
+				Lbl Z3
+				ClrList L3
+				For(P,1,dim(|LPOLY2)/length(Str4
+					seq(|LPOLY1(X)*|LPOLY2((P-1)*length(Str4)+1)*not(remainder(X-1,length(Str4)))+(0!=remainder(X-1,length(Str4)))*(|LPOLY1(X)+|LPOLY2(remainder(X-1,length(Str4))+1+(P-1)*length(Str4))),X,1,dim(|LPOLY1->L5
+					If P=1
+					Then
+						L5->L3
+					Else
+						augment(L5,L3)->L3
+					End
+				End
+				Return
+			Else
+				If V=4
+				Then
+					Lbl Z4
+					length(Str4->theta
+					For(A,1,dim(|LPOLY1)/theta-1
+						For(B,A+1,dim(|LPOLY1)/theta
+							If B<=dim(|LPOLY1)/theta
+							Then
+								1
+								For(C,2,theta
+									Ans(|LPOLY1(theta(B-1)+C)=|LPOLY1((A-1)*theta+C
+								End
+								If Ans
+								Then
+									|LPOLY1((B-1)theta+1)+|LPOLY1(1+theta(A-1)->|LPOLY1(1+theta(A-1
+									For(C,1,theta
+										seq(|LPOLY1(Z+(Z>=((B-1)theta+1))),Z,1,dim(|LPOLY1)-1->|LPOLY1
+									End
+									B-1->B
+								End
+							End
+						End
+					End
+					Return
+				Else
+					If V=5
+					Then
+						Lbl Z5
+						" ->Str6
+						DelVar A
+						1->B
+						For(A,1,length(Str3
+							sub(Str3,A,1->Str5
+							If inString("~1234567890",Str5
+							Then
+								Str6+Str5->Str6
+							Else
+								If Str5="*
+								Then
+									If 2<=length(Str6
+									sub(Str6,2,length(Str6)-1->Str6
+									If B-1
+									Then
+										expr(Str6)L1(1->L1(1
+									Else
+										expr(Str6)-1+L1(inString(Str4,Str5->L1(inString(Str4,Str5
+									End
+									1->B
+								Else
+									If inString(Str4,Str5
+									Then
+										inString(Str4,Str5
+										1+L1(Ans->L1(Ans
+										If Str6!=" 
+										Then
+											sub(Str6,2,length(Str6)-1->Str6
+											If B-1
+											Then
+												expr(Str6)-1+L1(B->L1(B
+											Else
+												L1(1)expr(Str6->L1(1
+											End
+										End
+										" ->Str6
+										1->B
+									Else
+										If Str5="^
+										Then
+											inString(Str4,sub(Str3,A-1,1->B
+											If not(B
+											Stop
+										End
+									End
+								End
+							End
+						End
+						If Str6!=" 
+						L1(B)expr(sub(Str6,2,length(Str6)-1->L1(B
+						Return
+					Else
+						If V=6
+						Then
+							Lbl Z6
+							ClrDraw
+							TextColor(Blue
+							Text(~1,1,1,"Expand
+							TextColor(Red
+							Text(~1,1,73,"CE:
+							TextColor(Black
+							Text(2,110,"Order of Operations
+							TextColor(DarkGray
+							Text(20,1,"Version 1 Patch 6
+							Wait 3
+							ClrDraw
+							TextColor(Navy
+							Text(1,1,"Written By:
+							TextColor(Black
+							Text(~1,17,1,"CoderTheBarbarian
+							Text(32,1,"-Calcode Software
+							Wait 3
+							ClrDraw
+							Text(1,1,"Thanks to all those who insp\ired me
+							Text(13,1,"If\ you have a question or\ suggestion
+							Text(26,1,"email me at ut2mi2013 at gmail.com. 
+							Text(39,1,"Or message me on Cemetech.
+							Wait 8
+							ClrDraw
+							Return
+						Else
+							If V=7
+							Then
+								Lbl Z7
+								"=->Str8
+								For(A,1,dim(|LPOLY1)/theta
+									If 0!=|LPOLY1(1+theta(A-1
+									Then
+										|LPOLY1(1+theta(A-1->E
+										If E<0
+										Then
+											~E->E
+											Str8+"-->Str8
+										Else
+											If Str8!="=
+											Str8+"+->Str8
+										End
+										If E=1
+										Then
+											DelVar C
+											For(B,2,theta
+												If |LPOLY1(B+theta(A-1
+												C+1->C
+											End
+											If not(C
+											Str8+toString(E->Str8
+										Else
+											Str8+toString(E->Str8
+										End
+										For(B,2,theta
+											|LPOLY1(B+theta(A-1->D
+											If D
+											Then
+												If D>=1
+												Then
+													Str8+sub(Str4,B,1->Str8
+													If D=2
+													Then
+														Str8+"^^2->Str8
+													Else
+														If D=3
+														Then
+															Str8+"^^3->Str8
+														Else
+															If D!=1
+															Str8+"^"+toString(|LPOLY1(B+theta(A-1->Str8
+														End
+													End
+												End
+											End
+										End
+									End
+								End
+								Return
+							Else
+								If V=8
+								Then
+									Lbl Z8
+									If length(Str5)=26
+									Then
+										Disp Str5
+									Else
+										For(S,1,int(length(Str5)/26
+											If S<=int(length(Str5)/26
+											Disp sub(Str5,26(S-1)+1,26
+										End
+										If 26(S-1)!=length(Str5
+										Disp sub(Str5,26(S-1)+1,length(Str5)-26(S-1
+									End
+									Return
+								Else
+									If V=9
+									Then
+										Lbl Z9
+										" ->Str8
+										For(A,1,dim(|LPOLY1)/theta
+											If 0!=|LPOLY1(1+theta(A-1
+											Then
+												|LPOLY1(1+theta(A-1->E
+												If E<0
+												Then
+													~E->E
+													Str8+"-->Str8
+												Else
+													If A!=1
+													Str8+"+->Str8
+												End
+												If E=1
+												Then
+													DelVar C
+													For(B,2,theta
+														If 0!=|LPOLY1(B+theta(A-1
+														C+1->C
+													End
+													If not(C
+													Str8+toString(E->Str8
+												Else
+													Str8+toString(E->Str8
+												End
+												For(B,2,theta
+													|LPOLY1(B+theta(A-1->D
+													If D
+													Then
+														If D>=1
+														Then
+															Str8+sub(Str4,B,1->Str8
+															If D!=1
+															Str8+"^"+toString(|LPOLY1(B+theta(A-1->Str8
+														End
+													End
+												End
+											End
+										End
+										sub(Str8,2,length(Str8)-1->Str8
+										Return
+									Else
+										If V=10
+										Then
+											{1,2,3,5,0,1,2,3,5,6,0,1,2,4,7,0,7,1,2,0,3,0,1,0,1,2,0->L3
+											{1,6,12,17,21,23,25->L2
+											For(A,1,length(Str1
+												sub(Str1,A,1->Str2
+												If inString("1234567890",Str2
+												Then
+													1->L1(A
+												Else
+													If inString("ABCDEFGHIJKLMNOPQRSTUVWXYZthetaabcdefghijklmnopqrstuvwxyz",Str2)
+													Then
+														2->L1(A
+													Else
+														If inString("+-*",Str2
+														Then
+															3->L1(A
+														Else
+															If Str2="(
+															Then
+																4->L1(A
+															Else
+																If Str2=")
+																Then
+																	5->L1(A
+																Else
+																	If Str2="^
+																	Then
+																		6->L1(A
+																	Else
+																		If Str2="~
+																		Then
+																			7->L1(A
+																		End
+																	End
+																End
+															End
+														End
+													End
+												End
+											End
+											ClrHome
+											If 4!=L1(1
+											Then
+												Disp "'(' m\ust be 1st char
+												Goto FA
+											End
+											If 5!=L1(dim(L1
+											Then
+												Disp "')' m\ust be last char"
+												Goto FA
+											End
+											For(A,1,dim(L1)-1
+												L2(L1(A->B
+												0->C
+												Repeat not(L3(B
+													If L1(A+1)=L3(B)
+													1->C
+													B+1->B
+												End
+												If not(C
+												Then
+													Output(1,1,"'"+sub(Str1,L1(A+1),1)+"'"+" is not allowed after '"+sub(Str1,L1(A),1)+"'"
+													Goto FA
+												End
+											End
+											Return
+											Lbl FA
+											1->theta
+											Pause 
+											Return
+										End
+									End
+								End
+							End
+						End
+					End
+				End
+			End
+		End
+	End
